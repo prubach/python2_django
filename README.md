@@ -21,3 +21,15 @@ pip3 install django
 10. python manage.py startapp bankapp
 11. After changes run:
 python manage.py migrate
+12. After changing models and adding app to INSTALLED_APPS in settings run:
+ python manage.py makemigrations bankapp
+13. python manage.py migrate
+14. Play with shell:
+python manage.py shell
+In Shell:
+>>> from bankapp.models import Customer, Account
+>>> from django.utils import timezone
+>>> c = Customer(first_name='John', last_name='Brown', email='john@brown', birth_date=timezone.now())
+>>> c.save()
+
+a = Account(balance=0, type='Debit', customer=c2)
