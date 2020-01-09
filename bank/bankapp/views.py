@@ -5,3 +5,8 @@ from django.shortcuts import render
 
 def index(request):
     return HttpResponse('Hello from Bank App')
+
+def test(request):
+    body = 'Hello from a template'
+    title = 'My first template'
+    return render(request, 'bankapp/test.html', {'body_text': body, 'title': title})
